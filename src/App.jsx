@@ -4,6 +4,7 @@ import LoginView from "./pages/LoginView";
 import DashboardView from "./pages/DashboardView";
 import LeadsView from "./pages/LeadsView";
 import LeadDetails from "./pages/LeadDetails";
+import NotFoundView from "./pages/NotFoundView";
 import "./App.css";
 
 const AUTH_STORAGE_KEY = "isLoggedIn";
@@ -77,9 +78,7 @@ function App() {
         />
         <Route
           path="*"
-          element={
-            <Navigate to={isAuthenticated ? "/dashboard" : "/login"} replace />
-          }
+          element={<NotFoundView isAuthenticated={isAuthenticated} />}
         />
       </Routes>
     </main>
